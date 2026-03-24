@@ -1,9 +1,9 @@
 package com.example.sminstagram.services;
 
-import com.example.sminstagram.entities.RefreshToken;
-import com.example.sminstagram.entities.User;
-import com.example.sminstagram.repos.UserRepo;
-import com.example.sminstagram.respones.RefreshTokenRepo;
+import com.example.sminstagram.entities.neon.RefreshToken;
+import com.example.sminstagram.entities.neon.User;
+import com.example.sminstagram.repos.neon.UserRepo;
+import com.example.sminstagram.repos.neon.RefreshTokenRepo;
 import com.example.sminstagram.respones.UserResponse;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;

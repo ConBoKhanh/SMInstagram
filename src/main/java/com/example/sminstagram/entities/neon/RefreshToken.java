@@ -1,4 +1,4 @@
-package com.example.sminstagram.entities;
+package com.example.sminstagram.entities.neon;
 
 import jakarta.persistence.*;
 import lombok.*;

@@ -1,6 +1,6 @@
 package com.example.sminstagram.respones;
 
-import com.example.sminstagram.entities.User;
+import com.example.sminstagram.entities.neon.User;
 import lombok.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;

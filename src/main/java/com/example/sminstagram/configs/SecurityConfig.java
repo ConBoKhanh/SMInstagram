@@ -23,6 +23,7 @@ public class SecurityConfig {
                                 "/v3/api-docs/**",
                                 "/swagger-ui.html"
                         ).permitAll()
+                        .requestMatchers("/api/*/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session
@@ -55,6 +56,19 @@ public class SecurityConfig {
                             "data": null
                         }
                     """);
+                        })
+                        // Có token nhưng không đủ quyền
+                        .accessDeniedHandler((request, response, accessDeniedException) -> {
+                            response.setStatus(403);
+                            response.setContentType("application/json");
+                            response.getWriter().write("""
+                            {
+                                "status": "fail",
+                                "message": "Forbidden - Không có quyền truy cập",
+                                "code": 403,
+                                "data": null
+                            }
+                        """);
                         })
                 )
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);

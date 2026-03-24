@@ -1,6 +1,6 @@
-package com.example.sminstagram.respones;
+package com.example.sminstagram.repos.neon;
 
-import com.example.sminstagram.entities.RefreshToken;
+import com.example.sminstagram.entities.neon.RefreshToken;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

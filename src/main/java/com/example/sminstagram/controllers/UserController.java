@@ -1,14 +1,13 @@
 package com.example.sminstagram.controllers;
 
 import com.example.sminstagram.bases.BaseResponse;
-import com.example.sminstagram.entities.User;
+import com.example.sminstagram.entities.neon.User;
 import com.example.sminstagram.requests.QueryRequest;
 import com.example.sminstagram.respones.PageResponse;
 import com.example.sminstagram.services.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -45,7 +44,7 @@ public class UserController {
         return ResponseEntity.ok(BaseResponse.success(userService.deleteUser(id)));
     }
 
-    @PostMapping("/search")
+    @PostMapping("/admin/search")
     @Operation(summary = "Search + filter + phân trang users")
     public ResponseEntity<BaseResponse<PageResponse<User>>> searchUsers(@RequestBody QueryRequest request) {
         return ResponseEntity.ok(BaseResponse.success(PageResponse.of(userService.getUsers(request))));

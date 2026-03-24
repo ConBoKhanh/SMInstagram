@@ -1,6 +1,6 @@
-package com.example.sminstagram.repos;
+package com.example.sminstagram.repos.neon;
 
-import com.example.sminstagram.entities.User;
+import com.example.sminstagram.entities.neon.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
