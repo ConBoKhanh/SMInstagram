@@ -1,0 +1,15 @@
+.swagger-ui .scheme-container {
+    display: none !important;
+}
+
+.swagger-ui select[id="servers"] {
+    display: none !important;
+}
+
+.swagger-ui .servers-title {
+    display: none !important;
+}
+
+.swagger-ui .servers {
+    display: none !important;
+}
