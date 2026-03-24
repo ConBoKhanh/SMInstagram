@@ -8,6 +8,7 @@ import com.example.sminstagram.respones.UserResponse;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -31,6 +32,7 @@ public class AuthService {
     private boolean cookieSecure;
 
     // ===== LOGIN =====
+    @Transactional
     public Map<String, Object> login(String username, String password, HttpServletResponse response) {
         User user = userRepo.findByUsername(username)
                 .orElseThrow(() -> new RuntimeException("Username hoặc password không đúng"));
@@ -67,6 +69,7 @@ public class AuthService {
     }
 
     // ===== REFRESH =====
+    @Transactional
     public Map<String, Object> refresh(HttpServletRequest request, HttpServletResponse response) {
         String refreshToken = extractRefreshTokenFromCookie(request);
 
@@ -102,6 +105,7 @@ public class AuthService {
     }
 
     // ===== LOGOUT =====
+    @Transactional
     public void logout(HttpServletRequest request, HttpServletResponse response) {
         String refreshToken = extractRefreshTokenFromCookie(request);
         refreshTokenRepo.findByToken(refreshToken)
